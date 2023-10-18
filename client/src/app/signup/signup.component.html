@@ -1,0 +1,185 @@
+<section class="">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <h1 class="my-5 display-3 fw-bold ls-tight">
+              Welcome <br />
+              <span class="text-primary">To Contact Book</span>
+            </h1>
+            <p style="color: hsl(217, 10%, 50.8%)">
+              Here you can manage your contacts
+            </p>
+          </div>
+  
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              <div class="card-body py-5 px-md-5">
+                <form [formGroup]="signupForm"  (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input
+                          type="text"
+                          id="firstName"
+                          class="form-control"
+                          formControlName="firstName"
+                          required
+                        />
+                        <label class="form-label" for="firstName"
+                          >First name</label
+                        >
+                      </div>
+                      <div
+                        *ngIf="
+                          signupForm.get('firstName').hasError('required') &&
+                          signupForm.get('firstName').touched
+                        "
+                        class="error"
+                      >
+                        First name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input
+                          type="text"
+                          id="lastName"
+                          class="form-control"
+                          formControlName="lastName"
+                          required
+                        />
+                        <label class="form-label" for="lastName">Last name</label>
+                      </div>
+                      <div
+                        *ngIf="
+                          signupForm.get('lastName').hasError('required') &&
+                          signupForm.get('lastName').touched
+                        "
+                        class="error"
+                      >
+                        Last name is required.
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      formControlName="email"
+                      required
+                    />
+                    <label class="form-label" for="email">Email address</label>
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('email').hasError('required') &&
+                      signupForm.get('email').touched
+                    "
+                    class="error"
+                  >
+                    Email address is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('email').hasError('email') &&
+                      signupForm.get('email').touched
+                    "
+                    class="error"
+                  >
+                    Enter a valid email address.
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="number"
+                      id="mobileno"
+                      class="form-control"
+                      formControlName="mobileno"
+                      required
+                    />
+                    <label class="form-label" for="mobileno">mobileno</label>
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('mobileno').hasError('required') &&
+                      signupForm.get('mobileno').touched
+                    "
+                    class="error"
+                  >
+                    mobileno is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('mobileno').hasError('exactLength') &&
+                      signupForm.get('mobileno').touched
+                    "
+                    class="error"
+                  >
+                    Mobile number must contain 10 digit
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      formControlName="password"
+                      required
+                    />
+                    <label class="form-label" for="password">Password</label>
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('password').hasError('required') &&
+                      signupForm.get('password').touched
+                    "
+                    class="error"
+                  >
+                    Password is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('password').hasError('minlength') &&
+                      signupForm.get('password').touched
+                    "
+                    class="error"
+                  >
+                    Password must be at least 6 characters long.
+                  </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="repass"
+                      class="form-control"
+                      formControlName="repass"
+                      required
+                    />
+                    <label class="form-label" for="rePass">Re Type Password</label>
+                  </div>
+                  <div
+                    *ngIf="
+                      signupForm.get('repass').hasError('required') &&
+                      signupForm.get('repass').touched
+                    "
+                    class="error"
+                  >
+                     Required.
+                  </div>
+                  <div
+                  class="text-danger"
+                  *ngIf="signupForm.get('repass').hasError('passwordMismatch')"
+                >
+                  Passwords do not match.
+                </div>
+                  <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary btn-block mb-4">
+                    Sign up
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

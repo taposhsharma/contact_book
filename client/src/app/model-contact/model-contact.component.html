@@ -1,0 +1,9 @@
+<div class="modal-body">
+    <h5 class="modal-header">Contact Information</h5>
+
+   <div *ngIf="contactData"> 
+    <p> <b> Name: </b>  {{ contactData.firstname }} {{ contactData.lastname }}</p>
+    <p><b>Mobile No:</b> +91 {{ contactData.mobileno }}</p>
+    <p><b>Email: </b>{{ contactData.email }}</p>
+  </div> 
+  </div>

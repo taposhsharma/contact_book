@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Create New Contact</h2>
+    <form [formGroup]="newContactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" formControlName="firstname" class="form-control" />
+      </div>
+      <div
+      *ngIf="
+        newContactForm.get('firstname').hasError('required') &&
+        newContactForm.get('firstname').touched
+      "
+      class="error"
+    >
+      First name is required.
+    </div>
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" formControlName="lastname" class="form-control" />
+      </div>
+      <div
+      *ngIf="
+        newContactForm.get('lastname').hasError('required') &&
+        newContactForm.get('lastname').touched
+      "
+      class="error"
+    >
+      First name is required.
+    </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+      </div>
+      <div
+      *ngIf="
+        newContactForm.get('email').hasError('required') &&
+        newContactForm.get('email').touched
+      "
+      class="error"
+    >
+      Email address is required.
+    </div>
+    <div
+      *ngIf="
+        newContactForm.get('email').hasError('email') &&
+        newContactForm.get('email').touched
+      "
+      class="error"
+    >
+      Enter a valid email address.
+    </div>
+      <div class="form-group">
+        <label for="mobileno">Mobile Number (10 digits)</label>
+        <input type="number" id="mobileno" formControlName="mobileno" class="form-control" />
+        <div
+        *ngIf="
+          newContactForm.get('mobileno').hasError('exactLength') &&
+          newContactForm.get('mobileno').touched
+        "
+        class="error"
+      >
+        Mobile number must contain 10 digit
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
